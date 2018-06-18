@@ -1,5 +1,16 @@
-{% extends 'base.html' %}
-{% block title %}Home | {{ super() }}{% endblock %}
+{% extends "base.html" %}
 {% block content %}
-  <h1>Hello</h1>
+<!--Enter Name -->
+<div class="enter-name">
+    <div class="grid-100">
+        <img src="/static/img/bear_avatar.svg" class="bear-avatar" />
+    </div>
+    <div class="grid-100">
+        <form action="" method="POST">
+            <label>Name your bear</label>
+            <input type="text" name="name" value="" autofocus>
+            <input type="submit" value="Let's build it!">
+        </form>
+    </div>
+</div>
 {% endblock %}
