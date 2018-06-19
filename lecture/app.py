@@ -1,10 +1,10 @@
-from flask import Flask, render_template, url_for, request, make_response, redirect
+from flask import Flask, render_template, url_for, request, make_response, redirect, flash
 import json
 from options import DEFAULTS
 
 
 app = Flask(__name__)
-
+app.secret_key = 'esauhou>UO>au.sh35@<Uouo52%@#ouo.42!@#42'
 
 def get_saved_data():
     '''Get Data from cookies'''
@@ -24,6 +24,7 @@ def index():
 
 @app.route('/save', methods=['POST'])
 def save():
+    flash("Alright! That looks awesome!")
     response = make_response(redirect(url_for('index')))
     data = get_saved_data()
     data.update(dict(request.form.items()))
