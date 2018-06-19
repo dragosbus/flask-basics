@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, make_response, redirect
 import json
+from options import DEFAULTS
 
 
 app = Flask(__name__)
@@ -28,6 +29,11 @@ def save():
     data.update(dict(request.form.items()))
     response.set_cookie('character', json.dumps(dict(request.form.items())))
     return response
+
+
+@app.route('/builder')
+def builder():
+    return render_template('builder.html', saves=get_saved_data(), options = DEFAULTS)
 
 
 if __name__ == '__main__':
