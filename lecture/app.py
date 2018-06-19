@@ -25,7 +25,7 @@ def index():
 @app.route('/save', methods=['POST'])
 def save():
     flash("Alright! That looks awesome!")
-    response = make_response(redirect(url_for('index')))
+    response = make_response(redirect(url_for('builder')))
     data = get_saved_data()
     data.update(dict(request.form.items()))
     response.set_cookie('character', json.dumps(dict(request.form.items())))
